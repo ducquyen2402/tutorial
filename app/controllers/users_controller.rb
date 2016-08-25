@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
     else
-      render "new"
+      render :new
     end
   end
 
@@ -30,11 +30,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(user_params)
+    if @user.update_attributes user_params
       flash[:success] = "Profile updated"
       redirect_to @user
     else
-      render "edit"
+      render :edit
     end
   end
 
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    redirect_to(root_url) unless current_user?(@user)
+    redirect_to root_url unless current_user? @user
   end
 
   def logged_in_user
@@ -70,6 +70,6 @@ class UsersController < ApplicationController
   end
 
   def admin_user
-    redirect_to(root_url) unless current_user.admin?
+    redirect_to root_url unless current_user.admin?
   end
 end

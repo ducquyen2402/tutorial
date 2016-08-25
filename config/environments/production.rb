@@ -8,7 +8,7 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   config.assets.compile = false
   config.log_level = :debug
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
   config.action_mailer.perform_caching = false
   config.i18n.fallbacks = true
   config.active_support.deprecation = :notify
@@ -17,7 +17,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   host = "appbyq.herokuapp.com"
-  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.default_url_options = {host: host}
   ActionMailer::Base.smtp_settings = {
     :address => "smtp.sendgrid.net",
     :port => "587",
